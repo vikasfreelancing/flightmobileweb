@@ -1,0 +1,3 @@
+class SendOtpRequest {
+  String mobile;
+}
