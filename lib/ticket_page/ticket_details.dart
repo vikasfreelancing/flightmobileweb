@@ -1,4 +1,6 @@
 import 'package:flightmobileweb/book/booking_page.dart';
+import 'package:flightmobileweb/login/pages/login_page.dart';
+import 'package:flightmobileweb/model/flight_user.dart';
 import 'package:flightmobileweb/ticket_page/flyer_details_page.dart';
 import 'package:flutter/material.dart';
 import '../model/flight_stop_ticket.dart';
@@ -43,6 +45,10 @@ class _BookTicketButtonState extends State<BookTicketButton> {
 //              )
               RaisedButton(
                 onPressed: () {
+                  if(FlightUser.getCurrentUser()==null)
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => LoginPage()));
+                  else
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => BookingPage(flightStopTicket: stopTicket,)));
                 },

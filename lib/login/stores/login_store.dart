@@ -46,6 +46,7 @@ abstract class LoginStoreBase with Store {
     SendOtpRequest sendOtpRequest = SendOtpRequest();
     sendOtpRequest.mobile = phoneNumber;
     await AuthService.sendOtp(sendOtpRequest).catchError((error) {
+      print(error);
       isLoginLoading = false;
       loginScaffoldKey.currentState.showSnackBar(SnackBar(
         behavior: SnackBarBehavior.floating,

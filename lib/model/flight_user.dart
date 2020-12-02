@@ -5,15 +5,15 @@ class FlightUser {
   static FlightUser user;
   static final LocalStorage storage = new LocalStorage('flight');
   static void setUser(FlightUser flightUser){
-    print("storage ${storage.getItem('flight_user')}");
-    print("User $flightUser");
+    //print("storage ${storage.getItem('flight_user')}");
+    //print("User $flightUser");
     if(flightUser==null) return;
-    print("Saving user ${flightUser.toJsonStorage()}");
+    //print("Saving user ${flightUser.toJsonStorage()}");
     user = flightUser;
     storage.setItem('flight_user', flightUser.toJsonStorage());
   }
   static FlightUser getCurrentUser(){
-    print("storage ${storage.getItem('flight_user')}");
+    //print("storage ${storage.getItem('flight_user')}");
     if(user==null && storage.getItem('flight_user')!=null){
         user=FlightUser.fromJsonStorage(storage.getItem('flight_user'));
     }

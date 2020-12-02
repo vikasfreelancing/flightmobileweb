@@ -1,3 +1,4 @@
+import 'package:flightmobileweb/login/pages/login_page.dart';
 import 'package:flightmobileweb/model/flight_user.dart';
 import 'package:flightmobileweb/sale/SalePage.dart';
 import 'package:flightmobileweb/login/stores/login_store.dart';
@@ -35,17 +36,17 @@ class _NavDrawerState extends State<NavDrawer> {
               ),
             ),
            ),
-          ListTile(
+          if(FlightUser.getCurrentUser()!=null)ListTile(
             leading: Icon(Icons.input),
             title: Text('Welcome'),
             onTap: () {},
           ),
-          ListTile(
+          if(FlightUser.getCurrentUser()!=null)ListTile(
             leading: Icon(Icons.verified_user),
             title: Text('Profile'),
             onTap: () {},
           ),
-          ListTile(
+          if(FlightUser.getCurrentUser()!=null)ListTile(
             leading: Icon(Icons.inbox),
             title: Text('Book'),
             onTap: () {
@@ -53,7 +54,7 @@ class _NavDrawerState extends State<NavDrawer> {
                   context, MaterialPageRoute(builder: (context) => SearchPage()));
             },
           ),
-          ListTile(
+          if(FlightUser.getCurrentUser()!=null)ListTile(
             leading: Icon(Icons.message),
             title: Text('Sale'),
             onTap: () {
@@ -61,12 +62,20 @@ class _NavDrawerState extends State<NavDrawer> {
                   context, MaterialPageRoute(builder: (context) => SalePage()));
             },
           ),
-          ListTile(
+          if(FlightUser.getCurrentUser()!=null)ListTile(
             leading: Icon(Icons.exit_to_app),
             title: Text('Logout'),
             onTap: () {
               LoginStore loginStore = LoginStore();
               loginStore.signOut(context);
+            },
+          ),
+          if(FlightUser.getCurrentUser()==null)ListTile(
+            leading: Icon(Icons.exit_to_app),
+            title: Text('Login'),
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => LoginPage()));
             },
           ),
         ],

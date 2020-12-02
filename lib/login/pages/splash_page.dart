@@ -31,13 +31,13 @@ class _SplashPageState extends State<SplashPage> {
         }
         else {
           Navigator.of(context).pushAndRemoveUntil(
-              MaterialPageRoute(builder: (_) => RegisterPage()),
+              MaterialPageRoute(builder: (_) => SearchPage()),
                   (Route<dynamic> route) => false);
         }
       }
       else {
         Navigator.of(context).pushAndRemoveUntil(
-            MaterialPageRoute(builder: (_) => const LoginPage()),
+            MaterialPageRoute(builder: (_) =>  SearchPage()),
                 (Route<dynamic> route) => false);
       }
     }

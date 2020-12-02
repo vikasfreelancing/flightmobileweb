@@ -6,7 +6,7 @@ class City {
   static Map<int,String> idToNameMap;
   static Map<String,int> nameToIdMap;
   static List<City> getCities(){
-    print('Getting City storage ${FlightUser.storage.getItem('cities')}');
+    //print('Getting City storage ${FlightUser.storage.getItem('cities')}');
     if(myCities == null && FlightUser.storage.getItem('cities')!=null)
       myCities = (FlightUser.storage.getItem('cities')as List)
           .map((i) => City.fromJson(i))

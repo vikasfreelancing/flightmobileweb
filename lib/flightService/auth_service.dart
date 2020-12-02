@@ -3,6 +3,7 @@ import 'dart:convert' as decoder;
 import 'package:flightmobileweb/model/auth_model.dart';
 import 'package:flightmobileweb/model/send_otp_request.dart';
 import 'package:flightmobileweb/model/flight_user.dart';
+import 'flight_constants.dart';
 import 'package:http/http.dart' as http;
 class AuthService {
   static Future<FlightUser> verifyOtp(AuthCredentials authCredentials) async {
@@ -10,7 +11,7 @@ class AuthService {
     print("endpoint : " + endPoint);
     print("mobile : ${authCredentials.phone} code: ${authCredentials.smsCode}");
     http.Response response = await http.post(
-        "https://flight-qu755gur4a-uc.a.run.app/v1/users/verifyuser",
+        flightServiceBaseUrl+"/v1/users/verifyuser",
         headers: {"Content-Type": "application/json"},
         body: decoder.jsonEncode({
           "username":authCredentials.phone,
@@ -33,12 +34,12 @@ class AuthService {
   }
 
   static Future<String> sendOtp(SendOtpRequest request) async {
-    String endPoint = "https://flight-qu755gur4a-uc.a.run.app/v1/opt/otpbyusername/" +
+    String endPoint = flightServiceBaseUrl +sendotp+
         request.mobile;
     print("endpoint : " + endPoint);
     http.Response response = await http.get(
       endPoint,
-      headers: {"Content-Type": "application/json"},
+      headers: headers,
     );
     print("Response code: " + response.statusCode.toString());
     if (response.statusCode == 200) {

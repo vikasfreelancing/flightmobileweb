@@ -28,20 +28,17 @@ class UserService{
     }
   }
   Future<List<TravelHistory>> getTravellingHistory() async {
-    FlightUser flightUser = FlightUser.getCurrentUser();
     print("Calling get Travel History Service");
     final user = FlightUser.getCurrentUser();
-    Map<String,Object> queryParameters = {
-      'userId': flightUser.userId,
-    };
     String url = flightServiceBaseUrl+getTravelHistory;
-    url="https://392f2cdd-a69b-405f-a63b-54f956a0467c.mock.pstmn.io/travel-history";
+    url="https://flight-qu755gur4a-uc.a.run.app/v1/users/persons/me";
     http.Response response = await http.get(url, headers: {
       "Content-Type": "application/json",
-      "token": user.userToken
+      "api-token": user.userToken
     });
+    print(response.body);
     if (response.statusCode == 200 && response.body != null) {
-      print("Response get Lost Items : " + response.body);
+      print("Response Travel history: " + response.body);
       List<TravelHistory> items =
       (decoder.json.decode(response.body) as List)
           .map((i) => TravelHistory.fromJson(i))

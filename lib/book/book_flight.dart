@@ -8,6 +8,7 @@ import 'package:flightmobileweb/login/widgets/loader_hud.dart';
 import 'package:flightmobileweb/model/BookingModel.dart';
 import 'package:flightmobileweb/model/TravelHistory.dart';
 import 'package:flightmobileweb/model/flight_stop_ticket.dart';
+import 'package:flightmobileweb/model/flight_user.dart';
 import 'package:flightmobileweb/search/search_flight_input.dart';
 import 'package:flightmobileweb/ticket_page/tickets_page.dart';
 import 'package:flutter/cupertino.dart';
@@ -127,6 +128,9 @@ class _BookFlightState extends State<BookFlight> {
             bookings = List<BookingModel>();
             travelHistoryList.forEach((history) {
               if(history.selected){
+                if(history.mobile==null){
+                  history.mobile = FlightUser.getCurrentUser().phoneNumber;
+                }
                 bookings.add(BookingModel(flightId: widget.flightStopTicket.flightNumber
                     ,age: history.age,name: history.name,userId: history.userId,mobile: history.mobile
                 ));

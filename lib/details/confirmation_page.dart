@@ -22,6 +22,19 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: LayoutBuilder(
+        builder: (context,constraints){
+          if(constraints.maxWidth < 600)
+            return buildSmallTicketCard(context);
+          else
+            return buildLargeTicketCard(context);
+        },
+      ),
+    );
+  }
+
+  Widget buildSmallTicketCard(BuildContext context){
+    return Scaffold(
       drawer: NavDrawer(),
       body: Stack(
         children: <Widget>[
@@ -41,6 +54,29 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
       ),
     );
   }
+
+  Widget buildLargeTicketCard(BuildContext context){
+    return Scaffold(
+      body: Stack(
+        children: <Widget>[
+          Flight(height: 1000,screen: 'Confirm',),
+          Positioned.fill(
+            child: Padding(
+              padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).padding.top + 70.0),
+              child: new Row(
+                children: <Widget>[
+                  Expanded(flex:3,child: NavDrawer(),),
+                  Expanded(flex:7,child: _buildConfirmationPage(context)),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
 
   Widget _buildConfirmationPage(BuildContext context) {
     return LoaderHUD(

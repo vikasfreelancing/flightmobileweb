@@ -174,13 +174,17 @@ class SaleFlightInputState extends State<SaleFlightInput>
                   ),
                   Row(
                     children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.only(right: 16.0),
-                        child: Icon(Icons.date_range, color: Colors.blue),
+                      Expanded(
+                        flex: 2,
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(0.0, 0.0, 64.0, 8.0),
+                          child: Icon(Icons.date_range, color: Colors.blue),
+                        ),
                       ),
                       Expanded(
+                        flex: 15,
                         child: Padding(
-                          padding: const EdgeInsets.only(right: 16.0),
+                          padding: const EdgeInsets.fromLTRB(0.0, 0.0, 64.0, 8.0),
                           child: basicDateField(context),
                         ),
                       ),
@@ -188,13 +192,17 @@ class SaleFlightInputState extends State<SaleFlightInput>
                   ),
                   Row(
                     children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.only(right: 16.0),
-                        child: Icon(Icons.date_range, color: Colors.blue),
+                      Expanded(
+                        flex: 2,
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(0.0, 0.0, 64.0, 8.0),
+                          child: Icon(Icons.date_range, color: Colors.blue),
+                        ),
                       ),
                       Expanded(
+                        flex: 15,
                         child: Padding(
-                          padding: const EdgeInsets.only(right: 16.0),
+                          padding: const EdgeInsets.fromLTRB(0.0, 0.0, 64.0, 8.0),
                           child: basicDateFieldArrival(context),
                         ),
                       ),

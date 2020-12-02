@@ -31,7 +31,7 @@ class FlightStopTicket {
         flightNumber = json['aircraftid'],
         departureDate = DateTime.parse(json['starttime']),
         arrivalDate = DateTime.parse(json['endtime']),
-        //price = double.parse(json['price']),
+        price =json['priceperseat'],
         freeLeg=json['freeleg'],
         id=json['id'],
         fromAirport= AirportModel.getAirportNameFromId(json['startairportid']),

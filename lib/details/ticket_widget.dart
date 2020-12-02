@@ -18,7 +18,7 @@ class _FlightTicketWidgetState extends State<FlightTicketWidget> {
     return Center(
         child: FlutterTicketWidget(
           color: Colors.blue[50],
-          width: 400.0,
+          width: 500.0,
           height: 200.0,
           isCornerRounded: true,
           child: Padding(

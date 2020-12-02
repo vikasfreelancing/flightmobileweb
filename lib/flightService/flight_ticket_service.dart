@@ -1,6 +1,5 @@
 import 'dart:convert' as decoder;
 import 'package:flightmobileweb/commons/commons.dart';
-import 'package:flightmobileweb/flightService/user_service.dart';
 import 'package:flightmobileweb/model/SaleFlightModel.dart';
 import 'package:flightmobileweb/model/aiprorts.dart';
 import 'package:flightmobileweb/model/city.dart';
@@ -27,7 +26,7 @@ class FlightTicketService {
     http.Response response = await http.post(url,
         headers: {
           "Content-Type": "application/json",
-          "api-token": user.userToken,
+          //"api-token": user.userToken,
         },
         body: decoder.jsonEncode(requestBody));
     List<AirportModel> airports = AirportModel.getAirports();
@@ -53,7 +52,7 @@ class FlightTicketService {
     url = "https://524daec2-5808-4ef3-846c-72d491febd8a.mock.pstmn.io/cities";
     http.Response response = await http.get(url, headers: {
       "Content-Type": "application/json",
-      "token": user.userToken,
+     // "token": user.userToken,
     });
     if (response.statusCode == 200 && response.body != null) {
       print("Response get Lost Items : " + response.body);
@@ -72,7 +71,7 @@ class FlightTicketService {
     url = "https://aad31b78-224e-4849-aec8-8e1b10d0520a.mock.pstmn.io/airports";
     http.Response response = await http.get(url, headers: {
       "Content-Type": "application/json",
-      "api-token": user.userToken
+      //"api-token": user.userToken
     });
     if (response.statusCode == 200 && response.body != null) {
       print("Response get Lost Items : " + response.body);

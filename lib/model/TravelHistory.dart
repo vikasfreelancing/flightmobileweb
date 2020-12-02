@@ -16,10 +16,10 @@ class TravelHistory{
     'id':id
   };
   TravelHistory.fromJson(Map<String, dynamic> json)
-      : userId = json['userId'],
-        age = int.parse(json['age']),
+      : userId = json['userid'].toString(),
+        age = 10,
         name = json['name'],
-        mobile = json['mobile'],
-        id=int.parse(json['id'])
+        mobile = '1234',
+        id=int.parse('123')
   ;
 }

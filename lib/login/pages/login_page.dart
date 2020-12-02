@@ -120,7 +120,7 @@ class _LoginPageState extends State<LoginPage> {
                                       OverlayVisibilityMode.editing,
                                   keyboardType: TextInputType.phone,
                                   maxLines: 1,
-                                  placeholder: '+33...',
+                                  placeholder: '+91...',
                                 ),
                               ),
                               Container(
