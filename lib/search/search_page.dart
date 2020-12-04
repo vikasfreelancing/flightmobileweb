@@ -11,8 +11,13 @@ class SearchPage extends StatelessWidget {
         builder: (context,constraints){
           if(constraints.maxWidth < 600)
             return buildSearchPageSmall(context);
-          else
-            return buildSearchPageSLarge(context);
+          else{
+            return Center(
+              child: SizedBox(width: 900,height: 600,
+              child: buildSearchPageSLarge(context),),
+            );
+          }
+            //return buildSearchPageSLarge(context);
         },
       ),
     );
@@ -22,8 +27,7 @@ class SearchPage extends StatelessWidget {
       drawer: NavDrawer(),
       body: LayoutBuilder(
         builder: (context,constraints){
-          return
-            Stack(
+          return Stack(
               children: <Widget>[
                 Flight(height: 1000,screen: 'Search',),
                 Positioned.fill(
@@ -55,10 +59,10 @@ class SearchPage extends StatelessWidget {
               Positioned.fill(
                 child: Padding(
                   padding: EdgeInsets.only(
-                      top: MediaQuery.of(context).padding.top + 70.0),
+                      top: MediaQuery.of(context).padding.top + 220.0),
                   child: new Row(
                     children: <Widget>[
-                      Expanded(flex:3,child: NavDrawer(),),
+                      Expanded(flex:3,child: NavDrawerLarge(),),
                       Expanded(flex:7,child: SearchFlight()),
                     ],
                   ),

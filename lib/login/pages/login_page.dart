@@ -17,18 +17,33 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (con,cons){
+        if(cons.maxWidth > 600){
+          return Center(
+            child: SizedBox(width: 700,height: 500,
+            child: buildConsumer(context),),
+          );
+        }
+        else
+          return buildConsumer(context);
+      },
+    ) ;
+  }
+
+  Widget buildConsumer(BuildContext context){
     return Consumer<LoginStore>(
       builder: (_, loginStore, __) {
         return Observer(
           builder: (_) => LoaderHUD(
             inAsyncCall: loginStore.isLoginLoading,
             child: Scaffold(
-              backgroundColor: Colors.white,
+              backgroundColor: Colors.blue[30],
               key: loginStore.loginScaffoldKey,
               body: SafeArea(
                 child: SingleChildScrollView(
                   child: Container(
-                    height: MediaQuery.of(context).size.height,
+                    height: MediaQuery.of(context).size.height-10,
                     child: Column(
                       children: <Widget>[
                         Expanded(
@@ -44,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
                                       child: Container(
                                         height: 240,
                                         constraints:
-                                            const BoxConstraints(maxWidth: 500),
+                                        const BoxConstraints(maxWidth: 500),
                                         margin: const EdgeInsets.only(top: 100),
                                         decoration: const BoxDecoration(
                                             color: Color(0xFFE1E0F5),
@@ -81,7 +96,7 @@ class _LoginPageState extends State<LoginPage> {
                             children: <Widget>[
                               Container(
                                   constraints:
-                                      const BoxConstraints(maxWidth: 500),
+                                  const BoxConstraints(maxWidth: 500),
                                   margin: const EdgeInsets.symmetric(
                                       horizontal: 10),
                                   child: RichText(
@@ -105,7 +120,7 @@ class _LoginPageState extends State<LoginPage> {
                               Container(
                                 height: 40,
                                 constraints:
-                                    const BoxConstraints(maxWidth: 500),
+                                const BoxConstraints(maxWidth: 500),
                                 margin: const EdgeInsets.symmetric(
                                     horizontal: 20, vertical: 10),
                                 child: CupertinoTextField(
@@ -117,7 +132,7 @@ class _LoginPageState extends State<LoginPage> {
                                           Radius.circular(4))),
                                   controller: phoneController,
                                   clearButtonMode:
-                                      OverlayVisibilityMode.editing,
+                                  OverlayVisibilityMode.editing,
                                   keyboardType: TextInputType.phone,
                                   maxLines: 1,
                                   placeholder: '+91...',
@@ -127,7 +142,7 @@ class _LoginPageState extends State<LoginPage> {
                                 margin: const EdgeInsets.symmetric(
                                     horizontal: 20, vertical: 10),
                                 constraints:
-                                    const BoxConstraints(maxWidth: 500),
+                                const BoxConstraints(maxWidth: 500),
                                 child: RaisedButton(
                                   onPressed: () {
                                     if (phoneController.text.isNotEmpty) {
@@ -154,7 +169,7 @@ class _LoginPageState extends State<LoginPage> {
                                         vertical: 8, horizontal: 8),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceBetween,
                                       children: <Widget>[
                                         Text(
                                           'Next',
@@ -164,8 +179,8 @@ class _LoginPageState extends State<LoginPage> {
                                           padding: const EdgeInsets.all(8),
                                           decoration: BoxDecoration(
                                             borderRadius:
-                                                const BorderRadius.all(
-                                                    Radius.circular(20)),
+                                            const BorderRadius.all(
+                                                Radius.circular(20)),
                                             color: MyColors.primaryColorLight,
                                           ),
                                           child: Icon(
