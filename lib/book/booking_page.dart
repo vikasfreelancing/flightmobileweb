@@ -17,7 +17,10 @@ class BookingPage extends StatelessWidget {
           if(constraints.maxWidth < 600)
             return buildBookingPageSmall(context);
           else
-            return buildBookingPageLarge(context);
+            return Center(
+              child: SizedBox(width: 900,height: 600,
+                child: buildBookingPageLarge(context),),
+            );;
         },
       ),
     );
@@ -62,10 +65,10 @@ class BookingPage extends StatelessWidget {
                 Positioned.fill(
                   child: Padding(
                     padding: EdgeInsets.only(
-                        top: MediaQuery.of(context).padding.top + 70.0),
+                        top: MediaQuery.of(context).padding.top + 220.0),
                     child: new Row(
                       children: <Widget>[
-                        Expanded(flex:3,child: NavDrawer(),),
+                        Expanded(flex:3,child: NavDrawerLarge(),),
                         Expanded(flex:7,child: BookFlight(flightStopTicket: flightStopTicket,)),
                       ],
                     ),

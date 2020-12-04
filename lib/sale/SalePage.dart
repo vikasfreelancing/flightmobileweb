@@ -12,7 +12,7 @@ class SalePage extends StatelessWidget {
           if(constraints.maxWidth < 600)
             return buildSalePageSmall(context);
           else
-            return buildSalePageLarge(context);
+            return Center(child: SizedBox(width: 900,height: 600,child: buildSalePageLarge(context)));
         },
       ),
     );
@@ -57,10 +57,10 @@ class SalePage extends StatelessWidget {
                 Positioned.fill(
                   child: Padding(
                     padding: EdgeInsets.only(
-                        top: MediaQuery.of(context).padding.top + 70.0),
+                        top: MediaQuery.of(context).padding.top + 220.0),
                     child: new Row(
                       children: <Widget>[
-                        Expanded(flex:3,child: NavDrawer(),),
+                        Expanded(flex:3,child: NavDrawerLarge(),),
                         Expanded(flex:7,child: SaleFlight()),
                       ],
                     ),

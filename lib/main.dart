@@ -55,6 +55,7 @@ class _AppState extends State<App> {
         )
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: SplashPage(),
       ),
     );

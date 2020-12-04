@@ -33,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget buildConsumer(BuildContext context){
     return Consumer<LoginStore>(
-      builder: (_, loginStore, __) {
+      builder: (_, loginStore, __,) {
         return Observer(
           builder: (_) => LoaderHUD(
             inAsyncCall: loginStore.isLoginLoading,
@@ -43,7 +43,7 @@ class _LoginPageState extends State<LoginPage> {
               body: SafeArea(
                 child: SingleChildScrollView(
                   child: Container(
-                    height: MediaQuery.of(context).size.height-10,
+                    height: (MediaQuery.of(context).size.height<600)?MediaQuery.of(context).size.height:600,
                     child: Column(
                       children: <Widget>[
                         Expanded(

@@ -1,11 +1,9 @@
-import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
-import 'package:flightmobileweb/commons/commons.dart';
+import 'package:flightmobileweb/commons/dateFileld.dart';
 import 'package:flightmobileweb/flightService/flight_ticket_service.dart';
 import 'package:flightmobileweb/model/SaleFlightModel.dart';
 import 'package:flightmobileweb/model/aiprorts.dart';
 import 'package:flutter/material.dart';
-import 'package:numeric_keyboard/numeric_keyboard.dart';
-import 'package:searchable_dropdown/searchable_dropdown.dart';
+import 'package:flightmobileweb/commons/dropdown.dart';
 class SaleFlightInput extends StatefulWidget {
   final formKey ;
   final SaleFlightTicketModel saleFlightTicket;
@@ -91,14 +89,14 @@ class SaleFlightInputState extends State<SaleFlightInput>
                       Expanded(
                         flex:2,
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(0.0, 0.0, 64.0, 8.0),
+                          padding: const EdgeInsets.fromLTRB(0.0, 0.0, 8.0, 8.0),
                           child: Icon(Icons.flight_takeoff,color: Colors.blue,),
                         ),
                       ),
                       Expanded(
                         flex: 15,
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(0.0, 0.0, 64.0, 8.0),
+                          padding: const EdgeInsets.fromLTRB(0.0, 0.0, 8.0, 8.0),
                           child: buildDropDownFromAirport(),
                         ),
                       )
@@ -109,14 +107,14 @@ class SaleFlightInputState extends State<SaleFlightInput>
                       Expanded(
                         flex:2,
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(0.0, 0.0, 64.0, 8.0),
+                          padding: const EdgeInsets.fromLTRB(0.0, 0.0, 8.0, 8.0),
                           child: Icon(Icons.flight_land,color: Colors.blue,),
                         ),
                       ),
                       Expanded(
                         flex: 15,
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(0.0, 0.0, 64.0, 8.0),
+                          padding: const EdgeInsets.fromLTRB(0.0, 0.0, 8.0, 8.0),
                           child: buildDropDownToAirport(),
                         ),
                       )
@@ -126,13 +124,13 @@ class SaleFlightInputState extends State<SaleFlightInput>
                     children: [
                       Expanded(flex: 2,
                           child: Padding(
-                            padding: const EdgeInsets.fromLTRB(0.0, 0.0, 64.0, 8.0),
+                            padding: const EdgeInsets.fromLTRB(0.0, 0.0, 8.0, 8.0),
                             child: Icon(Icons.person,color: Colors.blue,),
                           )
                       ),
                       Expanded(flex: 15,
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(0.0, 0.0, 64.0, 8.0),
+                          padding: const EdgeInsets.fromLTRB(0.0, 0.0, 8.0, 8.0),
                           child: TextFormField(
                             keyboardType: TextInputType.number,
                             validator:(seats)=>widget.saleFlightTicket.seats==null?'Please add number of seats available ':null,
@@ -151,13 +149,13 @@ class SaleFlightInputState extends State<SaleFlightInput>
                     children: [
                       Expanded(flex: 2,
                           child: Padding(
-                            padding: const EdgeInsets.fromLTRB(0.0, 0.0, 64.0, 8.0),
+                            padding: const EdgeInsets.fromLTRB(0.0, 0.0, 8.0, 8.0),
                             child: Icon(Icons.attach_money,color: Colors.blue,),
                           )
                       ),
                       Expanded(flex: 15,
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(0.0, 0.0, 64.0, 8.0),
+                          padding: const EdgeInsets.fromLTRB(0.0, 0.0, 8.0, 8.0),
                           child: TextFormField(
                             keyboardType: TextInputType.number,
                             validator:(seats)=>widget.saleFlightTicket.priceperseat==null?'Please provide price/seat ':null,
@@ -177,14 +175,14 @@ class SaleFlightInputState extends State<SaleFlightInput>
                       Expanded(
                         flex: 2,
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(0.0, 0.0, 64.0, 8.0),
+                          padding: const EdgeInsets.fromLTRB(0.0, 0.0, 8.0, 8.0),
                           child: Icon(Icons.date_range, color: Colors.blue),
                         ),
                       ),
                       Expanded(
                         flex: 15,
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(0.0, 0.0, 64.0, 8.0),
+                          padding: const EdgeInsets.fromLTRB(0.0, 0.0, 8.0, 8.0),
                           child: basicDateField(context),
                         ),
                       ),
@@ -195,14 +193,14 @@ class SaleFlightInputState extends State<SaleFlightInput>
                       Expanded(
                         flex: 2,
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(0.0, 0.0, 64.0, 8.0),
+                          padding: const EdgeInsets.fromLTRB(0.0, 0.0, 8.0, 8.0),
                           child: Icon(Icons.date_range, color: Colors.blue),
                         ),
                       ),
                       Expanded(
                         flex: 15,
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(0.0, 0.0, 64.0, 8.0),
+                          padding: const EdgeInsets.fromLTRB(0.0, 0.0, 8.0, 8.0),
                           child: basicDateFieldArrival(context),
                         ),
                       ),
@@ -217,120 +215,28 @@ class SaleFlightInputState extends State<SaleFlightInput>
   }
 
   Widget buildDropDownFromAirport() {
-    return SearchableDropdown.single(
-      validator: (value)=>(value==null)?'Please select from airport':null,
-      items: items,
-      onChanged: (fromAirport){
-         print(fromAirport);
-         int id = AirportModel.getAirportIdFromName(fromAirport);
-         widget.saleFlightTicket.fromAirport = id;
-         widget.saleFlightTicket.fromAirportName = fromAirport;
-      },
-      value: 0,
-      hint: "Select From Airport",
-      searchHint: "Select from Airport",
-      doneButton: "Done",
-      displayItem: (item, selected) {
-        return (Row(children: [
-          selected
-              ? Icon(
-            Icons.radio_button_checked,
-            color: Colors.grey,
-          )
-              : Icon(
-            Icons.radio_button_unchecked,
-            color: Colors.grey,
-          ),
-          SizedBox(width: 7),
-          Expanded(
-            child: item,
-          ),
-        ]));
-      },
-      isExpanded: true,
-    );
+    return DropDown(items, 'Select from Airport', 'Please select a Airport',(value){
+      print(value);
+      int id = AirportModel.getAirportIdFromName(value);
+      widget.saleFlightTicket.fromAirport = id;
+    });
   }
 
   Widget buildDropDownToAirport() {
-    return SearchableDropdown.single(
-      validator: (value)=>(value==null)?'Please select to Airport':null,
-      items: items,
-      onChanged: (toAirport){
-        int id = AirportModel.getAirportIdFromName(toAirport);
-        widget.saleFlightTicket.toAirport = id;
-        widget.saleFlightTicket.toAirportName = toAirport;
-      },
-      value: 0,
-      hint: "Select To Airport",
-      searchHint: "Select To Airport",
-      doneButton: "Done",
-      displayItem: (item, selected) {
-        return (Row(children: [
-          selected
-              ? Icon(
-            Icons.radio_button_checked,
-            color: Colors.grey,
-          )
-              : Icon(
-            Icons.radio_button_unchecked,
-            color: Colors.grey,
-          ),
-          SizedBox(width: 7),
-          Expanded(
-            child: item,
-          ),
-        ]));
-      },
-      isExpanded: true,
-    );
-  }
-
-
-  CurvedAnimation _buildInputAnimation({double begin, double end}) {
-    return new CurvedAnimation(
-        parent: textInputAnimationController,
-        curve: Interval(begin, end, curve: Curves.linear));
+    return DropDown(items, 'Select to Airport', 'Please select a Airport',(value){
+      print(value);
+      int id = AirportModel.getAirportIdFromName(value);
+      widget.saleFlightTicket.toAirport = id;
+    });
   }
   Widget basicDateField(BuildContext context) {
-    final format = DateUtil.format;
-    return DateTimeField(
-      validator:(value)=>widget.saleFlightTicket.departureDate==null?'Please select a date':null,
-      format: format,
-      decoration: InputDecoration(
-        labelText: "Departure",
-      ),
-      onChanged: (date) {
-        print(date);
-       widget.saleFlightTicket.departureDate = date;
-      },
-      onShowPicker: (context, currentValue) {
-        return showDatePicker(
-            context: context,
-            firstDate: DateTime(1900),
-            initialDate: currentValue ?? DateTime.now(),
-            lastDate: DateTime(2100));
-      },
-    );
+    return FlightDate('Departure', 'Please select a date', (value){
+      widget.saleFlightTicket.departureDate = value;
+    });
   }
   Widget basicDateFieldArrival(BuildContext context) {
-    final format = DateUtil.format;
-    return DateTimeField(
-      validator:(value)=>widget.saleFlightTicket.reachingTime==null?'Please select a date':null,
-      format: format,
-      decoration: InputDecoration(
-        labelText: "Arrival",
-      ),
-      onChanged: (date) {
-        print(date);
-        widget.saleFlightTicket.reachingTime = date;
-      },
-      onShowPicker: (context, currentValue) {
-        return showDatePicker(
-            context: context,
-            firstDate: DateTime(1900),
-            initialDate: currentValue ?? DateTime.now(),
-            lastDate: DateTime(2100));
-      },
-    );
+    return FlightDate('Arrival', 'Please select a date', (value){
+      widget.saleFlightTicket.reachingTime = value;
+    });
   }
 }
