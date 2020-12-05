@@ -94,37 +94,61 @@ class _NavDrawerLargeState extends State<NavDrawerLarge> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Drawer(
-        child: ListView(
-          padding: EdgeInsets.all(10),
-          children: <Widget>[
-            DrawerHeader(
-              decoration: BoxDecoration(color: Colors.blue[1]),
-              child: Center(
-                child: Column(
-                  children: [
-                    Expanded(
-                      flex: 10,
-                      child: Text(
-                        "Our vision for your comfort",
-                        style: TextStyle(color: Colors.black, fontSize: 25,fontFamily: "WorkSans-Italic-VariableFont_wght"
-                            ,fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    Expanded(flex: 3,child: SizedBox(height: 50,),),
-                    Expanded(
-                      flex: 12,
-                      child: Text(
-                        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy",
-                        style: TextStyle(color: Colors.black, fontSize: 15,fontFamily: "WorkSans-Italic-VariableFont_wght"
-                            ,fontWeight: FontWeight.normal),
-                      ),
-                    )],
+      padding: const EdgeInsets.all(0.0),
+      child: Container(
+        decoration: BoxDecoration(color: Colors.white),
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Text(
+                    "Our vision for your comfort",
+                    style: TextStyle(color: Colors.black, fontSize: 25,fontFamily: "WorkSans-Italic-VariableFont_wght"
+                        ,fontWeight: FontWeight.bold),
+                  ),
                 ),
-              ),
+                Expanded(
+                  child: Text(
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy",
+                    style: TextStyle(color: Colors.black, fontSize: 15,fontFamily: "WorkSans-Italic-VariableFont_wght"
+                        ,fontWeight: FontWeight.normal),
+                  ),
+                ),
+                Expanded(
+                  child: Text(
+                    "Our vision for your comfort",
+                    style: TextStyle(color: Colors.black, fontSize: 25,fontFamily: "WorkSans-Italic-VariableFont_wght"
+                        ,fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Expanded(
+                  child: Text(
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy",
+                    style: TextStyle(color: Colors.black, fontSize: 15,fontFamily: "WorkSans-Italic-VariableFont_wght"
+                        ,fontWeight: FontWeight.normal),
+                  ),
+                ),
+                Expanded(
+                  child: Text(
+                    "Our vision for your comfort",
+                    style: TextStyle(color: Colors.black, fontSize: 25,fontFamily: "WorkSans-Italic-VariableFont_wght"
+                        ,fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Expanded(
+                  child: Text(
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy",
+                    style: TextStyle(color: Colors.black, fontSize: 15,fontFamily: "WorkSans-Italic-VariableFont_wght"
+                        ,fontWeight: FontWeight.normal),
+                  ),
+                )
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

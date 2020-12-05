@@ -16,3 +16,10 @@ class TextUtil{
       fontSize: 15,
       letterSpacing: 2);
 }
+BoxDecoration decoration = new BoxDecoration(
+  gradient: new LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [Colors.blue, Colors.white],
+  ),
+);

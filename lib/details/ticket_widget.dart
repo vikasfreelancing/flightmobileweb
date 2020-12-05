@@ -22,7 +22,7 @@ class _FlightTicketWidgetState extends State<FlightTicketWidget> {
           height: 200.0,
           isCornerRounded: true,
           child: Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(0.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[

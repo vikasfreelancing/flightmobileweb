@@ -1,4 +1,5 @@
 import 'package:flightmobileweb/book/book_flight.dart';
+import 'package:flightmobileweb/commons/commons.dart';
 import 'package:flightmobileweb/model/TravelHistory.dart';
 import 'package:flightmobileweb/model/flight_stop_ticket.dart';
 import 'package:flightmobileweb/search/search_flight.dart';
@@ -11,17 +12,20 @@ class BookingPage extends StatelessWidget {
   final FlightStopTicket flightStopTicket;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: LayoutBuilder(
-        builder: (context,constraints){
-          if(constraints.maxWidth < 600)
-            return buildBookingPageSmall(context);
-          else
-            return Center(
-              child: SizedBox(width: 900,height: 600,
-                child: buildBookingPageLarge(context),),
-            );;
-        },
+    return Container(
+      decoration: decoration,
+      child: Scaffold(
+        body: LayoutBuilder(
+          builder: (context,constraints){
+            if(constraints.maxWidth < 600)
+              return buildBookingPageSmall(context);
+            else
+              return Center(
+                child: SizedBox(width: 900,
+                  child: buildBookingPageLarge(context),),
+              );;
+          },
+        ),
       ),
     );
   }

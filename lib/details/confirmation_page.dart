@@ -1,3 +1,4 @@
+import 'package:flightmobileweb/commons/commons.dart';
 import 'package:flightmobileweb/components/flight_bar.dart';
 import 'package:flightmobileweb/components/sideMenu.dart';
 import 'package:flightmobileweb/details/ticket_widget.dart';
@@ -21,14 +22,17 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
   bool loading=false;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: LayoutBuilder(
-        builder: (context,constraints){
-          if(constraints.maxWidth < 600)
-            return buildSmallTicketCard(context);
-          else
-            return Center(child: SizedBox(width:900,height:600,child: buildLargeTicketCard(context)));
-        },
+    return Container(
+      decoration: decoration,
+      child: Scaffold(
+        body: LayoutBuilder(
+          builder: (context,constraints){
+            if(constraints.maxWidth < 600)
+              return buildSmallTicketCard(context);
+            else
+              return Center(child: SizedBox(width:900,child: buildLargeTicketCard(context)));
+          },
+        ),
       ),
     );
   }

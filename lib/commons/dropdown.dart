@@ -1,7 +1,5 @@
-import 'package:flightmobileweb/model/flight_stop_ticket.dart';
 import 'package:flutter/material.dart';
 import 'package:searchable_dropdown/searchable_dropdown.dart';
-import 'package:flightmobileweb/model/city.dart';
 class DropDown extends StatefulWidget {
   DropDown(this.items,this.message,this.validationMessage,this.onChanged);
   final Function onChanged;

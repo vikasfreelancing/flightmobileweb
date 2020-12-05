@@ -34,8 +34,9 @@ class _SearchFlightState extends State<SearchFlight> {
           }
         },
         child: new Card(
-          elevation: 4.0,
-          margin: const EdgeInsets.all(8.0),
+          borderOnForeground: false,
+          elevation: 0.0,
+          margin: const EdgeInsets.all(0.0),
           child: DefaultTabController(
             child: new LayoutBuilder(
               builder:

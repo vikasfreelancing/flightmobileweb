@@ -2,18 +2,21 @@ import 'package:flightmobileweb/components/sideMenu.dart';
 import 'package:flightmobileweb/components/flight_bar.dart';
 import 'package:flightmobileweb/sale/sale_flight.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flightmobileweb/commons/commons.dart' as com;
 class SalePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: LayoutBuilder(
-        builder: (context,constraints){
-          if(constraints.maxWidth < 600)
-            return buildSalePageSmall(context);
-          else
-            return Center(child: SizedBox(width: 900,height: 600,child: buildSalePageLarge(context)));
-        },
+    return Container(
+      decoration:com.decoration,
+      child: Scaffold(
+        body: LayoutBuilder(
+          builder: (context,constraints){
+            if(constraints.maxWidth < 600)
+              return buildSalePageSmall(context);
+            else
+              return Center(child: SizedBox(width: 900,child: buildSalePageLarge(context)));
+          },
+        ),
       ),
     );
   }

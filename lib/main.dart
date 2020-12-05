@@ -1,4 +1,5 @@
-import 'package:flightmobileweb/flightService/user_service.dart';
+import 'package:flightmobileweb/login/pages/login_page.dart';
+import 'package:flightmobileweb/login/pages/otp_page.dart';
 import 'package:flightmobileweb/model/flight_user.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -55,6 +56,7 @@ class _AppState extends State<App> {
         )
       ],
       child: MaterialApp(
+        theme: ThemeData(scaffoldBackgroundColor: Colors.transparent),
         debugShowCheckedModeBanner: false,
         home: SplashPage(),
       ),

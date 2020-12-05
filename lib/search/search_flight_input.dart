@@ -81,7 +81,7 @@ class SearchFlightInputState extends State<SearchFlightInput>
         Form(
           key:widget.formKey,
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(0.0),
           child: Column(
             children: <Widget>[
               Row(
