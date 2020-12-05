@@ -1,4 +1,5 @@
 import 'package:flightmobileweb/commons/commons.dart';
+import 'package:flightmobileweb/model/flight_stop_ticket.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:numeric_keyboard/numeric_keyboard.dart';
@@ -9,7 +10,8 @@ import 'package:flightmobileweb/login/widgets/loader_hud.dart';
 
 class OtpPage extends StatefulWidget {
   final String mobile;
-  const OtpPage({Key key,this.mobile}) : super(key: key);
+  final FlightStopTicket flightStopTicket;
+  const OtpPage({Key key,this.mobile,this.flightStopTicket}) : super(key: key);
   @override
   _OtpPageState createState() => _OtpPageState();
 }

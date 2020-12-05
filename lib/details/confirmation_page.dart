@@ -90,8 +90,8 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
             return Future(() => true);
         },
         child: new Card(
-          elevation: 4.0,
-          margin: const EdgeInsets.all(8.0),
+          elevation: 0.0,
+          margin: const EdgeInsets.all(0.0),
           child: DefaultTabController(
             child: new LayoutBuilder(
               builder:

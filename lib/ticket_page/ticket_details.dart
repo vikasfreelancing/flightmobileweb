@@ -45,9 +45,11 @@ class _BookTicketButtonState extends State<BookTicketButton> {
 //              )
               RaisedButton(
                 onPressed: () {
-                  if(FlightUser.getCurrentUser()==null)
+                  if(FlightUser.getCurrentUser()==null) {
+                    FlightStopTicket.setTicket(stopTicket);
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => LoginPage()));
+                  }
                   else
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => BookingPage(flightStopTicket: stopTicket,)));

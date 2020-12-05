@@ -1,4 +1,5 @@
 import 'package:flightmobileweb/commons/commons.dart';
+import 'package:flightmobileweb/model/flight_stop_ticket.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -8,7 +9,8 @@ import 'package:flightmobileweb/components/theme.dart';
 import 'package:flightmobileweb/login/widgets/loader_hud.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key key}) : super(key: key);
+  LoginPage({Key key,this.flightStopTicket}) : super(key: key);
+  final FlightStopTicket flightStopTicket;
   @override
   _LoginPageState createState() => _LoginPageState();
 }

@@ -15,8 +15,7 @@ class SearchPage extends StatelessWidget {
             if(constraints.maxWidth < 600)
               return buildSearchPageSmall(context);
             else{
-              return Padding(
-                padding: const EdgeInsets.fromLTRB(200, 10, 0, 0),
+              return Center(
                 child: SizedBox(width: 900,
                 child: buildSearchPageSLarge(context),),
               );

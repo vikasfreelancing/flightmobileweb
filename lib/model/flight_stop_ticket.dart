@@ -1,6 +1,13 @@
 import 'package:flightmobileweb/model/aiprorts.dart';
 
 class FlightStopTicket {
+  static FlightStopTicket savedTicket;
+  static void setTicket(FlightStopTicket ticket){
+    savedTicket = ticket;
+  }
+  static FlightStopTicket getSavedTicket(){
+    return savedTicket;
+  }
   String id;
   int fromAirportId;
   int toAirportId;

@@ -1,9 +1,11 @@
+import 'package:flightmobileweb/book/booking_page.dart';
 import 'package:flightmobileweb/flightService/auth_service.dart';
 import 'package:flightmobileweb/flightService/user_service.dart';
 import 'package:flightmobileweb/login/pages/constants.dart';
 import 'package:flightmobileweb/login/pages/login_page.dart';
 import 'package:flightmobileweb/login/pages/otp_page.dart';
 import 'package:flightmobileweb/model/auth_model.dart';
+import 'package:flightmobileweb/model/flight_stop_ticket.dart';
 import 'package:flightmobileweb/model/send_otp_request.dart';
 import 'package:flightmobileweb/model/flight_user.dart';
 import 'package:flightmobileweb/register/register_page.dart';
@@ -107,10 +109,17 @@ abstract class LoginStoreBase with Store {
       Navigator.of(context).pushAndRemoveUntil(
           MaterialPageRoute(builder: (_) => RegisterPage()),
           (Route<dynamic> route) => false);
-    else
+    else{
+      if(FlightStopTicket.getSavedTicket()!=null){
+        Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(builder: (_) => BookingPage(flightStopTicket: FlightStopTicket.getSavedTicket(),)),
+                (Route<dynamic> route) => false);
+      }
+      else
       Navigator.of(context).pushAndRemoveUntil(
           MaterialPageRoute(builder: (_) => SearchPage()),
-          (Route<dynamic> route) => false);
+              (Route<dynamic> route) => false);
+    }
     isLoginLoading = false;
     isOtpLoading = false;
   }
@@ -119,7 +128,7 @@ abstract class LoginStoreBase with Store {
   Future<void> signOut(BuildContext context) async {
     await FlightUser.logout();
     await Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (_) => const LoginPage()),
+        MaterialPageRoute(builder: (_) => LoginPage()),
         (Route<dynamic> route) => false);
     FlightUser.setUser(null);
   }
