@@ -15,6 +15,13 @@ class TextUtil{
       fontWeight: FontWeight.normal,
       fontSize: 15,
       letterSpacing: 2);
+
+  static TextStyle textStyleHeading = TextStyle(
+      fontFamily: 'WorkSans-Italic-VariableFont_wght',
+      fontWeight: FontWeight.bold,
+      color: Colors.blue,
+      fontSize: 25,
+      letterSpacing: 4);
 }
 BoxDecoration decoration = new BoxDecoration(
   gradient: new LinearGradient(

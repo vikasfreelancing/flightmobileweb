@@ -67,6 +67,10 @@ class _BookFlightState extends State<BookFlight> {
                   (BuildContext context, BoxConstraints viewportConstraints) {
                 return Column(
                   children: <Widget>[
+                    Container(
+                      padding: EdgeInsets.all(12),
+                      child: Text("Book your Tickets",style: TextUtil.textStyleHeading,),
+                    ),
                     _buildContentContainer(viewportConstraints),
                   ],
                 );

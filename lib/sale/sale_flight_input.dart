@@ -1,3 +1,4 @@
+import 'package:flightmobileweb/commons/commons.dart';
 import 'package:flightmobileweb/commons/dateFileld.dart';
 import 'package:flightmobileweb/flightService/flight_ticket_service.dart';
 import 'package:flightmobileweb/model/SaleFlightModel.dart';
@@ -84,6 +85,10 @@ class SaleFlightInputState extends State<SaleFlightInput>
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: <Widget>[
+                  Container(
+                    padding: EdgeInsets.all(12),
+                    child: Text("Sale your Flight",style: TextUtil.textStyleHeading,),
+                  ),
                   Row(
                     children: [
                       Expanded(

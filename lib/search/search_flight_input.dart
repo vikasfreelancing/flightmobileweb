@@ -1,3 +1,4 @@
+import 'package:flightmobileweb/commons/commons.dart';
 import 'package:flightmobileweb/commons/dateFileld.dart';
 import 'package:flightmobileweb/commons/dropdown.dart';
 import 'package:flightmobileweb/flightService/flight_ticket_service.dart';
@@ -84,6 +85,10 @@ class SearchFlightInputState extends State<SearchFlightInput>
           padding: const EdgeInsets.all(0.0),
           child: Column(
             children: <Widget>[
+              Container(
+                padding: EdgeInsets.all(12),
+                child: Text("Search your Flight",style: TextUtil.textStyleHeading,),
+              ),
               Row(
                 children: [
                   Expanded(
